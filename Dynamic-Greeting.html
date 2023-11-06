@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Greet</title>
+    <style>
+        #greet{
+            text-align: center;
+            font-size: 30px;
+            font-family:'Times New Roman', Times, serif;
+        }
+
+        #button{
+            
+            cursor: pointer;
+                   
+                    color: #fff;
+                    background-color: #0d6efd;
+                    border-color: #0d6efd;
+                    display: inline-block;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    text-align: center;
+                    border: 1px solid transparent;
+                    padding: 6px 12px;
+                    font-size: 16px;
+                    border-radius: .25rem;
+                 
+                
+        }
+    </style>
+</head>
+<body>
+    
+   <button id="button" onclick="greetFunc()">Greet</button>
+
+   <h1 id="greet" style="display: none;"></h1> 
+
+   <script>
+    let getTime = new Date().getHours();
+    let greeting = "";
+    
+
+    function greetFunc(){
+        switch (1) {
+          case getTime >= 18 && getTime < 18:
+          greeting = "hello! Good Afternoon!";
+          break;
+          case getTime >= 5 && getTime < 12:
+          greeting = "hello! Good Morning!";
+          break;
+          default:
+          greeting = "hello! Good Evening!";
+        }     
+        
+        document.getElementById("greet").textContent = greeting;
+        document.getElementById("greet").style.display = "";
+    }
+
+   </script>
+</body>
+</html>
