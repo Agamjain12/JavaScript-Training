@@ -44,16 +44,16 @@
     
 
     function greetFunc(){
-        switch (1) {
-          case getTime >= 18 && getTime < 18:
+        
+          if( getTime >= 12 && getTime < 18){
           greeting = "hello! Good Afternoon!";
-          break;
-          case getTime >= 5 && getTime < 12:
+          }
+          else if(getTime >= 5 && getTime < 12){
           greeting = "hello! Good Morning!";
-          break;
-          default:
+          }
+          else{
           greeting = "hello! Good Evening!";
-        }     
+          }     
         
         document.getElementById("greet").textContent = greeting;
         document.getElementById("greet").style.display = "";
