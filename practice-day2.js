@@ -1,3 +1,11 @@
+//                loose equality and tight equality
+
+
+console.log(2=="2"); // returns true because coercion take place and converts string into number
+console.log(2==="2"); // returns false because the type of values is being compared and conversion don't take place.
+
+
+
 //                Strings and their properties
 
 // slice
@@ -48,3 +56,29 @@ console.log("agam".repeat(3)); // repeat method repeats the given strings and gl
 // length method
 
 console.log("reference".length); // returns the length of the string.
+
+
+
+
+
+//            Number precision and methods
+
+//  toPrecision method formats the number to a specified length
+let s = 13.5812;
+console.log(s.toPrecision(3)); // prints 13.6
+console.log(s.toPrecision(10)); // prints 13.58120000
+
+
+
+//                      methods
+
+function f(x){
+    console.log(x.toString()); // prints a string value of given number
+    console.log(x.toFixed(0)); // prints decimals upto given number
+    console.log(x.valueOf());  // returns a number as a number
+}
+
+f(23.48);
+
+
+
