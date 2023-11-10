@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-list</title>
+</head>
+<body>
+    <h1>Task-list</h1>
+
+    <form>
+        <label for="task-input">enter a task: </label>
+        <input type="text" name="text-input" id="text-input">
+        <button>add</button>
+    </form>
+
+    <ul id="task-list"></ul>
+
+    <script>
+        const form = document.querySelector('form');
+        const taskList = document.querySelector('#task-list');
+
+        function addTask(task){
+            const listItem = document.createElement('li')
+            listItem.innerHTML = `<input type="checkbox" /> <span>$(task)</span><button>Delete</button>` ;
+            taskList.appendChild(listItem)
+        }
+
+        form.addEventListener('submit', (event)=>{
+            event.preventDefault();
+            const input = document.querySelector('#task-input');
+            const task = input.value;
+            addTask(task);
+            input.value = ''
+        })
+    </script>
+</body>
+</html>
