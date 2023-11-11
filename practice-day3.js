@@ -176,3 +176,25 @@ while (i < 5) {
 }
 // Logs:
 // 1 3 7 12
+
+
+//             for...in and for...of loop for iterating over array and objects
+
+let obje = {
+    name: 'agam',
+    age: '12',
+    city: 'imac'
+};
+
+for(let key in obje){
+    console.log(key +':'+obje[key]);
+}
+
+
+// for...of loop
+
+let arra = [1,2,3,4];
+
+for(let num of arra){
+    console.log(num);
+}
