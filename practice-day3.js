@@ -114,3 +114,65 @@ if (!Number.isNaN(theNumber)) {
 console.log("Your number is the square root of " +
 theNumber * theNumber);
 }
+
+
+// shortcircuiting of logical opeators
+
+// logical AND
+// Example 1
+const result = false && doSomething(); // doSomething() is not called, and result is false
+
+// Example 2
+const x = 5;
+const y = x && 10; // y is assigned the value 10 because x is truthy
+
+// logical OR
+
+// Example 1
+const rr = true || doSomething(); // doSomething() is not called, and result is true
+
+// Example 2
+const xx = 0;
+const yy = x || 10; // y is assigned the value 10 because x is falsy
+
+
+//                   for loop
+
+for(let i=0; i<5; i++){
+    console.log(`i yawned ${i} times in last 5 min`);
+}
+
+//                   label break 
+
+let xz = 0;
+let z = 0;
+labelCancelLoops: while (true) {
+  console.log("Outer loops:", xz);
+  xz += 1;
+  z = 1;
+  while (true) {
+    console.log("Inner loops:", z);
+    z += 1;
+    if (z === 10 && xz === 10) {
+      break labelCancelLoops;
+    } else if (z === 10) {
+      break;
+    }
+  }
+}
+
+
+//          continue statement
+
+let i = 0;
+let n = 0;
+while (i < 5) {
+  i++;
+  if (i === 3) {
+    continue;
+  }
+  n += i;
+  console.log(n);
+}
+// Logs:
+// 1 3 7 12

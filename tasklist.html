@@ -10,7 +10,7 @@
 
     <form>
         <label for="task-input">enter a task: </label>
-        <input type="text" name="text-input" id="text-input">
+        <input type="text" name="text-input" id="task-input">
         <button>add</button>
     </form>
 
@@ -21,18 +21,24 @@
         const taskList = document.querySelector('#task-list');
 
         function addTask(task){
-            const listItem = document.createElement('li')
-            listItem.innerHTML = `<input type="checkbox" /> <span>$(task)</span><button>Delete</button>` ;
-            taskList.appendChild(listItem)
-        }
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `<input type="checkbox" /> <span>${task}</span><button class="delete-btn">Delete</button>`;
+    taskList.appendChild(listItem);
+
+    
+    const deleteBtn = listItem.querySelector('.delete-btn');
+    deleteBtn.addEventListener('click', () => {
+        taskList.removeChild(listItem);
+    });
+}
 
         form.addEventListener('submit', (event)=>{
             event.preventDefault();
             const input = document.querySelector('#task-input');
             const task = input.value;
             addTask(task);
-            input.value = ''
-        })
+            input.value = '';
+        });
     </script>
 </body>
 </html>
