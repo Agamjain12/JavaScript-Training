@@ -80,7 +80,63 @@ const numbers = [1,2,3,4,5,6];
 const oddNumbers = numbers.filter(number => number%2 != 0);
 
 
-// object creation and accessing the properties
+//                        Maps and set
+
+
+const mapp = new Map();
+
+
+mapp.set(1, "fearless");
+mapp.set(2, "speak now");
+mapp.set(3, "red");
+mapp.set(4, "1989");
+
+console.log(mapp.get(2));
+console.log(mapp.size);
+console.log(mapp.delete(3));
+
+// iterating map using forEach loop
+
+map.forEach((key,value) => {
+    console.log(`${key} = ${value}`)
+});
+
+// cloning map
+
+const manp = new Map([[1, "one"]]); 
+
+const clone = new Map(manp);
+
+console.log(clone.get(1));
+
+
+//                   merging maps
+
+
+const mak1 = new Map([
+    [1, "one"],
+    [2, "two"],
+    [3, "three"]
+  ]);
+  
+  const mak2 = new Map([
+    [1, 'uno'],
+    [2, "des"],
+  
+  ]);
+  
+  // Merge two maps. The last repeated key wins.
+  // Spread syntax essentially converts a Map to an Array
+  
+  const merged = new Map([...mak1, ...mak2]);
+  
+  merged.forEach((key,value)=>{
+    console.log(`${key} = ${value}`);
+  });
+  
+
+
+//                     object creation and accessing the properties
 
 const con = {
     height: "34cm",
