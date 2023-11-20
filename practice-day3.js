@@ -48,6 +48,13 @@ console.log(arr(2,3));
 let arrr = (x,y) =>  x+y;
 console.log(arrr(2,4));
 
+// arrow function implicit return
+
+const art1 = () => (
+   Math.floor( Math.random() *5 ) +1
+) 
+console.log(art1())  // this returns a random number from 1 to 5 without using the word return
+
 
 //                 Call back functions
 //                 Passing function as a value
