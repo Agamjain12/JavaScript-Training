@@ -58,7 +58,10 @@ saf.forEach(function(ele){
     console.log(ele);
 })
 
+//                    spread arrays
 
+const ast = [2,43,5324,4342,234];
+console.log(Math.max(...ast)); // prints the max number, ast array is spreaded in arguements 
 
 //                        Maps in array
 
@@ -128,7 +131,7 @@ const mak1 = new Map([
   // Merge two maps. The last repeated key wins.
   // Spread syntax essentially converts a Map to an Array
   
-  const merged = new Map([...mak1, ...mak2]);
+  const merged = new Map([...mak1, ...mak2]); // use of spread
   
   merged.forEach((key,value)=>{
     console.log(`${key} = ${value}`);
@@ -183,13 +186,17 @@ for(let check in faceCard){
     console.log(`${check} facecard is ${faceCard[check]}`)
 }
 
+const copyFaceCard = {...faceCard, menace: 'valid'}; // creates a copy of the object and add a new property
+
 // accessing values only
 
 for(let val in Object.values(faceCard)){
     console.log(val);
 }
 
+// what happens when you spread objects and arrays together
 
+console.log({...[1,2,3,4]}); // index become the key and 
 
 
 //                           this keyword
