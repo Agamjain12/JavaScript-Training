@@ -1,75 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Interactive Quiz</title>
-    <style>
-        .correct {
-            color: green;
-        }
-        .wrong {
-            color: red;
-        }
-    </style>
 </head>
 <body>
 
-<form>
-  <p>Question1: what will be the output on console: console.log(typeof('5'))</p>
-  <input type="radio" id="string" name="question1" value="string">
-  <label for="string">string</label><br>
-  <input type="radio" id="number" name="question1" value="number">
-  <label for="number">number</label><br>
-  <input type="radio" id="null" name="question1" value="null">
-  <label for="null">null</label><br>
-
-  <p>Question2: which one of these is not a data type in javascript?</p>
-  <input type="radio" id="float" name="question2" value="float">
-  <label for="float">float</label><br>
-  <input type="radio" id="BigInt" name="question2" value="BigInt">
-  <label for="BigInt">BigInt</label><br>
-  <input type="radio" id="Object" name="question2" value="Object">
-  <label for="Object">Object</label><br>
-
-  <p>Question3: whats the output of this statement: console.log('2'+2)?</p>
-  <input type="radio" id="twenty-two" name="question3" value="twenty-two">
-  <label for="twenty-two">22</label><br>
-  <input type="radio" id="four" name="question3" value="four">
-  <label for="four">4</label><br>
-  <input type="radio" id="error" name="question3" value="error">
-  <label for="error">error</label><br>
-  
-  <p>Question4: whats the output of this statement: console.log('2'-2)?</p>
-  <input type="radio" id="zero" name="question4" value="zero">
-  <label for="zero">0</label><br>
-  <input type="radio" id="twenty-tw" name="question4" value="twenty-tw">
-  <label for="twenty-tw">4</label><br>
-  <input type="radio" id="error1" name="question4" value="error1">
-  <label for="error1">error</label><br>
-
-</form>
+<div id="instructions">
+    <h2>Instructions:</h2>
+    <p>Welcome to the Interactive Quiz!</p>
+    <p>Answer the following questions by typing your response in the console.</p>
+    <p>After answering all questions, check the console for feedback on your answers.</p>
+    <p>To exit the quiz, simply type "quit" when prompted for an answer.</p>
+</div>
 
 <script>
     const correctAnswers = {
-      question1: "string",
-      question2: "float",
-      question3: "twenty-two",
-      question4: "zero"
+        question1: "string",
+        question2: "float",
+        question3: "twenty-two",
+        question4: "zero"
     };
-  
-    const options = document.querySelectorAll('input[type="radio"]');
-    options.forEach(option => {
-      option.addEventListener('change', function() {
-        const question = this.name;
-        const label = document.querySelector(`label[for=${this.id}]`);
-        if (this.value === correctAnswers[question]) {
-          label.style.color = 'green';
-        } else {
-          label.style.color = 'red';
+
+    const questions = [
+        "Question1: what will be the output on console: console.log(typeof('5')) 1: string 2: number 3: NaN 4: undefined",
+        "Question2: which one of these is not a data type in JavaScript? 1:Number 2: string 3: bigInteger 4: float ",
+        "Question3: what's the output of this statement: console.log('2'+2)? 1: twenty-two 2: four 3: null 4: undefined",
+        "Question4: what's the output of this statement: console.log('2'-2)? 1: zero 2: twenty-two 3: null 4: error"
+    ];
+
+    const userAnswers = {};
+
+    for (let i = 0; i < questions.length; i++) {
+        const answer = prompt(questions[i]);
+        if (answer.toLowerCase() === 'quit') {
+            console.log('Quiz terminated. Goodbye!');
+            break;
         }
-      });
-    });
-  </script>
-  
+        userAnswers[`question${i + 1}`] = answer;
+    }
+
+    if (Object.keys(userAnswers).length > 0) {
+        for (const question in userAnswers) {
+            const isCorrect = userAnswers[question] === correctAnswers[question];
+
+            console.log(`${question} - Your answer: ${userAnswers[question]}, Correct answer: ${correctAnswers[question]}`);
+            console.log(`Result: ${isCorrect ? 'Correct' : 'Wrong'}`);
+            console.log("------------------------");
+        }
+    }
+</script>
 
 </body>
 </html>
