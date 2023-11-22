@@ -87,13 +87,37 @@ let order = (time,work) =>{
         resolve(work());
       }, time)
     } else{
-      reject(console.log("false"));
+      reject(console.log("promise not fulfilled"));
     }
   })
 }
 
-order(2000, () => console.log("promise fullfilled"));
+order(2000, () => console.log("promise fullfilled"))
 
 
 // promise chaining 
 
+.then(()=>{
+  return order(0, ()=>{
+     console.log("seems like its working");
+  })
+})
+
+.then(()=>{
+  return order(2000,()=>{
+    console.log("wait, is it really working");
+  })
+})
+
+.then(()=>{
+  return order(3000,()=>{
+    console.log("damnn, it is working");
+  })
+})
+
+// error handelling 
+// in case the promise is rejected or not fulfilled, catch block will execute
+
+.catch(()=>{
+  console.log("oops sorry about that");
+})
