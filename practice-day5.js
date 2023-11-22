@@ -72,3 +72,28 @@ myBoundMethod(); // prints "zero,one,two" because 'this' is bound to myArray in 
 myBoundMethod(1); // prints "one"
 setTimeout(myBoundMethod, 1.0 * 1000); // still prints "zero,one,two" after 1 second because of the binding
 setTimeout(myBoundMethod, 1.5 * 1000, "1"); // prints "one" after 1.5 seconds
+
+
+//                    promises
+
+// relationship between time and work
+
+let is_true = true;
+
+let order = (time,work) =>{
+  return new Promise((resolve,reject)=>{
+    if(is_true){
+      setTimeout(()=>{
+        resolve(work());
+      }, time)
+    } else{
+      reject(console.log("false"));
+    }
+  })
+}
+
+order(2000, () => console.log("promise fullfilled"));
+
+
+// promise chaining 
+
