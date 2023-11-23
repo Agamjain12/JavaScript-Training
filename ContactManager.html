@@ -12,6 +12,7 @@
         <li>"new" - Add A contact</li>
         <li>"list" - List All Contacts</li>
         <li>"delete" - Remove Specific Contact</li>
+        <li>"search" - Search Specific Contact</li>
         <li>"quit" - Quit App</li>
     </ul>
     <script>
@@ -44,6 +45,16 @@ while(input!=='quit'&& input!=='q'){
         
 
     }
+    else if(input === 'search') {
+                const searchName = prompt("enter the name to search");
+                const foundContact = contacts.find(contact => contact.name.toLowerCase() === searchName.toLowerCase());
+
+                if(foundContact) {
+                    console.log(`Contact found - name: ${foundContact.name} phone number: ${foundContact.num}`);
+                } else {
+                    console.log(`Contact with name ${searchName} not found`);
+                }
+            }
    input = prompt("what would you like to do");
 }
 
