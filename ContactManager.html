@@ -15,50 +15,62 @@
         <li>"search" - Search Specific Contact</li>
         <li>"quit" - Quit App</li>
     </ul>
-    <script>
-        let input = prompt("what would you like to do");
+
+
+   <div onclick="func()">
+    <button>click</button>
+   </div>
+  
+
+
+</body>
+</html>
+
+<script>
+ ( function func(){
+
+    let input = prompt("what would you like to do");
 const contacts = [{name: "agam", num: "9589441616" }];
 while(input!=='quit'&& input!=='q'){
-    if(input==='list'){
-        console.log("**********");
-        let i=0;
-        for(let con of contacts){
-            console.log(`${i++} name: ${con.name} phone number: ${con.num}`);
-        }
+if(input==='list'){
+    console.log("**********");
+    let i=0;
+    for(let con of contacts){
+        console.log(`${i++} name: ${con.name} phone number: ${con.num}`);
     }
+}
 
-    else if(input==='new'){
-        const newName = prompt("enter the name of contact");
-        const newNum = prompt("enter the phone number");
-        contacts.push({name: newName, num: newNum})
-        console.log(`new contact ${newName} is added to the phonebook`);
+else if(input==='new'){
+    const newName = prompt("enter the name of contact");
+    const newNum = prompt("enter the phone number");
+    contacts.push({name: newName, num: newNum})
+    console.log(`new contact ${newName} is added to the phonebook`);
+}
+else if(input==='delete'){
+    const index = parseInt(prompt("okay enter the index of contact you want to delete"));
+    if(!Number.isNaN(index) && index >= 0 && index < contacts.length){
+       const deleted = contacts.splice(index,1);
+       console.log(`Ok, deleted ${deleted[0].name}`);
     }
-    else if(input==='delete'){
-        const index = parseInt(prompt("okay enter the index of contact you want to delete"));
-        if(!Number.isNaN(index) && index >= 0 && index < contacts.length){
-           const deleted = contacts.splice(index,1);
-           console.log(`Ok, deleted ${deleted[0].name}`);
-        }
-        else{
-            console.log("unknown index");
-        }
-        
-
+    else{
+        console.log("unknown index");
     }
-    else if(input === 'search') {
-                const searchName = prompt("enter the name to search");
-                const foundContact = contacts.find(contact => contact.name.toLowerCase() === searchName.toLowerCase());
+    
 
-                if(foundContact) {
-                    console.log(`Contact found - name: ${foundContact.name} phone number: ${foundContact.num}`);
-                } else {
-                    console.log(`Contact with name ${searchName} not found`);
-                }
+}
+else if(input === 'search') {
+            const searchName = prompt("enter the name to search");
+            const foundContact = contacts.find(contact => contact.name.toLowerCase() === searchName.toLowerCase());
+
+            if(foundContact) {
+                console.log(`Contact found - name: ${foundContact.name} phone number: ${foundContact.num}`);
+            } else {
+                console.log(`Contact with name ${searchName} not found`);
             }
-   input = prompt("what would you like to do");
+        }
+input = prompt("what would you like to do");
 }
 
 console.log("okay quite the app");
-    </script>
-</body>
-</html>
+  } ) ();
+</script>
