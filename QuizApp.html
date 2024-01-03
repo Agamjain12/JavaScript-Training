@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Interactive Quiz</title>
+</head>
+<body>
+
+<div id="instructions">
+    <h2>Instructions:</h2>
+    <p>Welcome to the Interactive Quiz!</p>
+    <p>Answer the following questions by typing your response in the console.</p>
+    <p>After answering all questions, check the console for feedback on your answers.</p>
+    <p>To exit the quiz, simply type "quit" when prompted for an answer.</p>
+</div>
+
+<div onclick="quiz()">
+<button>click</button></div>
+
+<script>
+   ( function quiz(){
+    const correctAnswers = {
+        question1: "string",
+        question2: "float",
+        question3: "twenty-two",
+        question4: "zero"
+    };
+
+    const questions = [
+        "Question1: what will be the output on console: console.log(typeof('5')) 1: string 2: number 3: NaN 4: undefined",
+        "Question2: which one of these is not a data type in JavaScript? 1:Number 2: string 3: bigInteger 4: float ",
+        "Question3: what's the output of this statement: console.log('2'+2)? 1: twenty-two 2: four 3: null 4: undefined",
+        "Question4: what's the output of this statement: console.log('2'-2)? 1: zero 2: twenty-two 3: null 4: error"
+    ];
+
+    const userAnswers = {};
+    let userScore = 0;
+
+    for (let i = 0; i < questions.length; i++) {
+        const answer = prompt(questions[i]);
+        if (answer.toLowerCase() === 'quit') {
+            console.log('Quiz terminated. Goodbye!');
+            break;
+        }
+        userAnswers[`question${i + 1}`] = answer;
+    }
+
+    if (Object.keys(userAnswers).length > 0) {
+        for (const question in userAnswers) {
+            const isCorrect = userAnswers[question] === correctAnswers[question];
+
+            console.log(`${question} - Your answer: ${userAnswers[question]}, Correct answer: ${correctAnswers[question]}`);
+            console.log(`Result: ${isCorrect ? 'Correct' : 'Wrong'}`);
+            console.log("------------------------");
+            if(isCorrect){
+            userScore++;
+        }
+        }
+       
+        console.log(`user score is ${userScore}`);
+    }
+}) ();
+</script>
+
+</body>
+</html>

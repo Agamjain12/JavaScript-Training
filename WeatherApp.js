@@ -1,6 +1,6 @@
 async function getWeather() {
     const apiKey = '0ade9b1ef43b4b4898973314232411'; 
-    const city = 'Indore'; 
+    const city = 'katni'; 
   
     const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
   

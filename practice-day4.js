@@ -201,7 +201,7 @@ const ars = {
     }
 }
 
-console.log(ars.func()); // expencted output 'agam'. this when used in the method, refers to the object
+console.log(ars.func()); // expected output 'agam'. this when used in the method, refers to the object
 
 //           Explicit binding(when binded with call(), apply(), bind() method)
 
