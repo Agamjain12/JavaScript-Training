@@ -175,3 +175,26 @@ Object.setPrototypeOf(Derived.prototype, Base.prototype); // Derived.prototype i
 
 const obj = new Derived();
 // obj ---> Derived.prototype ---> Base.prototype ---> Object.prototype ---> null
+
+
+
+//            enumerable and non-enumerables
+
+// Enumerable properties are those that can be iterated over in a for...in loop or obtained
+// using Object.keys(), Object.values(), or Object.entries() methods.
+// properties / prototypes by default are not considered to be enumerable
+// in order to make a proprety enumberable or non-enumerable do enumerable: true/false
+
+function Example() {}
+Example.prototype.myMethod = function() {};
+
+const instance = new Example();
+
+for (const key in instance) {
+  console.log(key); // No output, prototype properties are not enumerable
+}
+
+// to make this enumerable:
+// Example.prototype.myMethod = function() {
+//   enumerable : true;
+// };
