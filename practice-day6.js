@@ -99,6 +99,22 @@ function createPerson(name, age) {
 
   let c = ret.bind(name3,"goa","painter");
 
+  //                  bind method example
+  let objj = {
+    name: "agam"
+};
+
+let obj1 = {
+    name: "simo",
+    sayName: function(){
+        console.log(this.name);
+    }
+}
+
+let retu = obj1.sayName.bind(objj);
+
+retu(); 
+
 
 
   //           prototype and prototype chaining
