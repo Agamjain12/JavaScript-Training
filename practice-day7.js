@@ -234,3 +234,12 @@ const obb = JSON.parse(invalidString);
 catch(error){
     console.error("Error parsing JSON: ", error.message); //Error parsing JSON:  Unexpected token } in JSON at position 24
 }
+
+
+//                       ES6 MODULES
+
+import add from './module.js';
+
+const result = add(2,5);
+
+console.log(result); 
