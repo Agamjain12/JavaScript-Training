@@ -176,3 +176,20 @@ function* anotherGenerator(i) {
 
   //         inheritance 
   
+
+  //    getters and setters 
+
+  class Mack{
+    book;
+    get nameOf(){
+        return this.book;
+    }
+    set nameOf(book){
+        this.book = book;
+    }
+    
+}
+
+const mack = new Mack();
+mack.nameOf = "elitebook";
+console.log(mack.nameOf);
