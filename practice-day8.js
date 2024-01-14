@@ -193,3 +193,4 @@ function* anotherGenerator(i) {
 const mack = new Mack();
 mack.nameOf = "elitebook";
 console.log(mack.nameOf);
+
