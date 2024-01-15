@@ -198,3 +198,24 @@ for (const key in instance) {
 // Example.prototype.myMethod = function() {
 //   enumerable : true;
 // };
+
+
+// setting prototypes
+
+const mbj = {
+  name : "agam"
+};
+
+Object.setPrototypeOf(mbj,{
+  myMethod : function(){
+    console.log(`its ${this.name} again`);
+  }
+});
+
+mbj.myMethod();
+
+// setting a prototype for all the objects
+
+Object.prototype.mainMethod = function(){
+  console.log("mainnn");
+}
