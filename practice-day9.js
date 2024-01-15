@@ -158,7 +158,8 @@ async function tvMaze(){
 
     const firstDateInfo =  Object.keys(result.data)[0];
     ;
-     console.log(firstDateInfo);
+    console.log(firstDateInfo); 
+
     const MY_URL = `https://api.tvmaze.com/schedule?country=US&date=${firstDateInfo}`;
     
     const response = await fetch(MY_URL);
@@ -173,3 +174,5 @@ async function tvMaze(){
 }
 
 tvMaze();
+
+// Quiz game API: https://opentdb.com/api.php?amount=10&category=21&difficulty=medium&type=multiple
